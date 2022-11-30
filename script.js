@@ -34,7 +34,14 @@ const newDiv = document.createElement('li')
 console.log(newDiv)
 newDiv.innerHTML = 'Div content' // `.innerText` = `.innerHTML`
 document.querySelector('ul').appendChild(newDiv) // Adds div into DOM (end of <ul>)
+document.body.appendChild(newDiv.cloneNode(true)) // Also add div to <body> -> clones into new object
     // Ideal for complex elements. Otherwise use..
 
     // SEMANTIC VERSION: querySelector
     // document.querySelector('ul').innerHTML += '<li>Div Content</li>'
+
+// NOTE: If an element is called from another parent, the element will move into it's most recent call (reparent).
+// aka. a node can only have one parent.
+
+// SHALLOW CLONES: .cloneNode()
+// Clones node but none of its children

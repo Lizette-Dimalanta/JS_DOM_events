@@ -79,3 +79,29 @@ If an element is called from another parent, the element will move into it's mos
 **DEEP COPY** -> `.cloneNode(true)`
 
 `def`: Copies node including its children.
+
+## Manipulating CSS Styling
+
+Access to all CSS properties on an element.
+
+```javascript
+document.querySelector('h1').style.paddingLeft = '50px'
+```
+
+`.add`: Add class to an element
+
+```javascript
+document.querySelector('h1').classList.add('foo')
+```
+
+`.remove`: Remove class from an element
+
+```javascript
+document.querySelector('h1').classList.remove('foo')
+```
+
+`.toggle`: Adds class if it doesn't already exist, otherwise remove class *(convenient for animating hamburger name)*.
+
+```javascript
+document.querySelector('h1').classList.toggle('foo')
+```

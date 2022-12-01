@@ -48,3 +48,15 @@ document.body.appendChild(newDiv.cloneNode(true)) // Also add div to <body> -> c
 
 // DEEP COPY: .cloneNode(true)
 // Copies node including its children.
+
+// MANIPULATING CSS STYLING
+document.querySelector('h1').style.paddingLeft = '50px' // Access to all CSS properties on an element
+
+// `.add`: Add class to an element
+document.querySelector('h1').classList.add('foo')
+
+// `.remove`: Remove class from an element
+document.querySelector('h1').classList.remove('foo')
+
+// `.toggle`: Adds class if it doesn't already exist, otherwise remove class (convenient for animating hamburger name)
+document.querySelector('h1').classList.toggle('foo')

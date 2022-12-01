@@ -45,3 +45,6 @@ document.body.appendChild(newDiv.cloneNode(true)) // Also add div to <body> -> c
 
 // SHALLOW CLONES: .cloneNode()
 // Clones node but none of its children
+
+// DEEP COPY: .cloneNode(true)
+// Copies node including its children.

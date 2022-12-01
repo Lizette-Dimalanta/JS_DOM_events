@@ -66,12 +66,16 @@ document.body.appendChild(newDiv.cloneNode(true)) // Also add div to <body> -> c
     document.querySelector('ul').innerHTML += '<li>Div Content</li>'
 ```
 
-**NOTE:**
+## **NOTES**
 
 If an element is called from another parent, the element will move into it's most recent call (reparent).
 
     aka. a node can only have one parent.
 
-SHALLOW CLONES: `.cloneNode()`
+**SHALLOW CLONES** -> `.cloneNode()`
 
 `def`: Clones node but none of its children.
+
+**DEEP COPY** -> `.cloneNode(true)`
+
+`def`: Copies node including its children.

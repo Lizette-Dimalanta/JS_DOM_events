@@ -30,11 +30,11 @@
 // document.body.appendChild(newDiv) // Adds div into DOM (end of <body>)
 
 // .createElement -> querySelector
-const newDiv = document.createElement('li')
-console.log(newDiv)
-newDiv.innerHTML = 'Div content' // `.innerText` = `.innerHTML`
-document.querySelector('ul').appendChild(newDiv) // Adds div into DOM (end of <ul>)
-document.body.appendChild(newDiv.cloneNode(true)) // Also add div to <body> -> clones into new object
+// const newDiv = document.createElement('li')
+// console.log(newDiv)
+// newDiv.innerHTML = 'Div content' // `.innerText` = `.innerHTML`
+// document.querySelector('ul').appendChild(newDiv) // Adds div into DOM (end of <ul>)
+// document.body.appendChild(newDiv.cloneNode(true)) // Also add div to <body> -> clones into new object
     // Ideal for complex elements. Otherwise use..
 
     // SEMANTIC VERSION: querySelector
@@ -50,13 +50,44 @@ document.body.appendChild(newDiv.cloneNode(true)) // Also add div to <body> -> c
 // Copies node including its children.
 
 // MANIPULATING CSS STYLING
-document.querySelector('h1').style.paddingLeft = '50px' // Access to all CSS properties on an element
+// document.querySelector('h1').style.paddingLeft = '50px' // Access to all CSS properties on an element
 
-// `.add`: Add class to an element
-document.querySelector('h1').classList.add('foo')
+// // `.add`: Add class to an element
+// document.querySelector('h1').classList.add('foo')
 
-// `.remove`: Remove class from an element
-document.querySelector('h1').classList.remove('foo')
+// // `.remove`: Remove class from an element
+// document.querySelector('h1').classList.remove('foo')
 
-// `.toggle`: Adds class if it doesn't already exist, otherwise remove class (convenient for animating hamburger name)
-document.querySelector('h1').classList.toggle('foo')
+// // `.toggle`: Adds class if it doesn't already exist, otherwise remove class (convenient for animating hamburger name)
+// document.querySelector('h1').classList.toggle('foo')
+
+// Adding items into a list: Create list items dynamically
+const items = [
+    'Adding to the DOM',
+    'Querying the DOM',
+    'Changing the DOM',
+    'Dynamic generation',
+    'Event Listeners'
+]
+
+const ul = document.querySelector('ul')
+
+// items.forEach(item => ul.innerHTML += `<li>${item}</li>`)
+                // OR
+// Creates new array -> modifed version of original array
+ul.innerHTML = items.map(item => `<li>${item}</li>`).join('') // Can be more efficient 
+
+// console.log('foo')
+
+// EVENTS
+
+// Callback function: a function passed into another function as an argument, which is then called back in the outer function
+
+// Add Event listener:
+const h1 = document.querySelector('h1')
+
+h1.addEventListener('click', event => {
+    event.target.innerText += '!'
+    event.target.classList.toggle('foo')
+    // Remove rocket operator (replace with function) to stop even listener
+})

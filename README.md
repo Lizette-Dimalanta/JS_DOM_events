@@ -43,6 +43,8 @@ console.log(el[2])
 
 ## Programmatically create new elements
 
+---
+
 ### `.createElement`
 
 ```javascript
@@ -66,7 +68,9 @@ document.body.appendChild(newDiv.cloneNode(true)) // Also add div to <body> -> c
     document.querySelector('ul').innerHTML += '<li>Div Content</li>'
 ```
 
-## **NOTES**
+## NOTES
+
+---
 
 If an element is called from another parent, the element will move into it's most recent call (reparent).
 
@@ -82,26 +86,79 @@ If an element is called from another parent, the element will move into it's mos
 
 ## Manipulating CSS Styling
 
-Access to all CSS properties on an element.
+Access to all CSS properties on an element:
 
 ```javascript
 document.querySelector('h1').style.paddingLeft = '50px'
 ```
 
-`.add`: Add class to an element
+`.add`: Add class to an element:
 
 ```javascript
 document.querySelector('h1').classList.add('foo')
 ```
 
-`.remove`: Remove class from an element
+`.remove`: Remove class from an element:
 
 ```javascript
 document.querySelector('h1').classList.remove('foo')
 ```
 
-`.toggle`: Adds class if it doesn't already exist, otherwise remove class *(convenient for animating hamburger name)*.
+`.toggle`: Adds class if it doesn't already exist, otherwise remove class: *(convenient for animating hamburger name)*.
 
 ```javascript
 document.querySelector('h1').classList.toggle('foo')
+```
+
+## `script.js` - Adding items into a list
+
+---
+
+Create list items dynamically:
+
+```javascript
+const items = [
+    'Adding to the DOM',
+    'Querying the DOM',
+    'Changing the DOM',
+    'Dynamic generation',
+    'Event Listeners'
+]
+```
+
+`.join` item into list:
+
+```javascript
+const ul = document.querySelector('ul')
+
+items.forEach(item => ul.innerHTML += `<li>${item}</li>`)
+// OR
+ul.innerHTML = items.map(item => `<li>${item}</li>`).join('') 
+// Creates new array -> modifed version of original array (can be more efficient)
+
+console.log('foo')
+```
+
+## Events
+
+---
+
+**Callback function:** A function passed into another function as an argument, which is then called back in the outer function.
+
+Add Event listener:
+
+```javascript
+const btn = document.querySelector('button')
+const input = document.querySelector('input')
+
+btn.addEventListener('click', event => {
+    event.preventDefault()
+    ul.innerHTML += `<li>${input.value}</li>`
+    input.value = ''
+    input.focus() // Keeps cursor position in input field after submission
+    
+    // event.target.innerText += '!'
+    // event.target.classList.toggle('foo')
+    // Remove rocket operator (replace with function) to stop event listener
+})
 ```

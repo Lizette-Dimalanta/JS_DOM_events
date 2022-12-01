@@ -91,7 +91,8 @@ btn.addEventListener('click', event => {
     event.preventDefault()
     ul.innerHTML += `<li>${input.value}</li>`
     input.value = ''
-    input.focus()
+    input.focus() // Keeps cursor position in input field after submission
+    
     // event.target.innerText += '!'
     // event.target.classList.toggle('foo')
     // Remove rocket operator (replace with function) to stop even listener

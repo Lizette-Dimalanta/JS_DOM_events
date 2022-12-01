@@ -84,10 +84,15 @@ ul.innerHTML = items.map(item => `<li>${item}</li>`).join('') // Can be more eff
 // Callback function: a function passed into another function as an argument, which is then called back in the outer function
 
 // Add Event listener:
-const h1 = document.querySelector('h1')
+const btn = document.querySelector('button')
+const input = document.querySelector('input')
 
-h1.addEventListener('click', event => {
-    event.target.innerText += '!'
-    event.target.classList.toggle('foo')
+btn.addEventListener('click', event => {
+    event.preventDefault()
+    ul.innerHTML += `<li>${input.value}</li>`
+    input.value = ''
+    input.focus()
+    // event.target.innerText += '!'
+    // event.target.classList.toggle('foo')
     // Remove rocket operator (replace with function) to stop even listener
 })
